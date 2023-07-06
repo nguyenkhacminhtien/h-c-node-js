@@ -5,12 +5,7 @@ class NewController {
      res.render('news')
   }
 
-//   [GET] /news
-    show(req, res) {
-     res.send('News Dtails')
-  }
-
 }
 
 
-module.exports = new NewController;
+module.exports = new NewController();

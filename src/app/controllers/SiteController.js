@@ -1,8 +1,15 @@
-
+const CollectionExample = require('../models/CollectionExample');
+const {mutipleMongooseToObject} = require('../../util/mongoose')
 class SiteController {
   
-    home(req, res) {
-     res.render('home')
+  home(req, res, next) {
+    CollectionExample.find({})
+    .then (data => {
+    
+      res.render('home', {data: mutipleMongooseToObject(data)})
+    
+    })
+    .catch (next)
   }
 
 //   [GET] /search
@@ -13,4 +20,4 @@ class SiteController {
 }
 
 
-module.exports = new SiteController;
+module.exports =  SiteController;
